@@ -1,0 +1,47 @@
+module StraightLine
+exports
+	context-free start-symbols Goal
+	sorts Goal StmList Stm Exp ExpList Num Id Print
+
+	lexical syntax
+	
+		[\ \t\n\r]		->	LAYOUT
+
+		[0] | [1-9][0-9]*	->	Num
+		[a-zA-Z] [a-zA-Z0-9]*
+						->	Id
+		"print"			->	Print
+
+	lexical restrictions
+		Id Print -/- [a-zA-Z0-9]
+
+	context-free syntax
+	
+		StmList			->	Goal
+		{ Stm ";" }+	->	StmList
+		Id ":=" Exp		->	Stm			{ cons("Assign") }
+		Print "(" ExpList ")"
+						->	Stm			{ cons("Print") }
+	
+		Id				->	Exp			{ cons("Id") }
+		Num				->	Exp			{ cons("Num") }
+		Exp "+" Exp		->	Exp			{ cons("Add") }
+		Exp "-" Exp		->	Exp			{ cons("Sub") }
+		Exp "*" Exp		->	Exp			{ cons("Mul") }
+		Exp "/" Exp		->	Exp			{ cons("Div") }
+
+		"(" StmList "," Exp ")"
+						->	Exp			{ cons("StmExp") }
+	
+		{ Exp "," }+	->	ExpList
+
+	context-free priorities
+		
+		{ left:
+			Exp "+" Exp	->	Exp
+			Exp "-" Exp	->	Exp
+			}
+		> { left:
+			Exp "*" Exp	->	Exp
+			Exp "/" Exp	->	Exp
+			}

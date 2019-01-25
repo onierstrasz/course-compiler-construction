@@ -1,0 +1,16 @@
+
+module ExpEval
+
+imports libstratego-lib
+imports Exp
+
+rules
+	convert : Int(x) -> <string-to-int>(x)
+	eval : Plus(m,n) -> <add>(m,n)
+	eval : Minus(m,n) -> <subt>(m,n)
+	eval : Mul(m,n) -> <mul>(m,n)
+	eval : Div(m,n) -> <div>(m,n)
+	eval : Mod(m,n) -> <mod>(m,n)
+
+strategies
+	main = io-wrap(innermost(convert <+ eval))

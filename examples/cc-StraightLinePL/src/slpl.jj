@@ -1,0 +1,122 @@
+/**
+ * @author Oscar Nierstrasz
+ * $Id: slpl.jj 21776 2008-10-09 08:07:12Z oscar $
+ */
+
+/* ORIGINAL GRAMMAR:
+
+	Stm -> Stm ; Stm
+	Stm -> id := Exp
+	Stm -> print ( ExpList )
+	Exp -> id
+	Exp -> num
+	Exp -> Exp Binop Exp
+	Exp -> ( Stm , Exp )
+	ExpList -> Exp , ExpList
+	ExpList -> Exp
+	Binop -> +
+	Binop -> -
+	Binop -> /
+	Binop -> *
+
+	a := 5 + 3; b := (print(a,a-1),10*a); print(b)
+ =>
+	8 7
+	80
+*/
+
+
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(StraightLineParser)
+  package parser;
+  public class StraightLineParser {}
+PARSER_END(StraightLineParser)
+
+SKIP : /* WHITE SPACE */
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+TOKEN : 
+{
+  < SEMICOLON: ";" >
+| < ASSIGN: ":=" >
+| < LPAREN: "(" >
+| < RPAREN: ")" >
+| < COMMA: "," >
+| < PRINT: "print" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < TIMES: "*" >
+| < DIVIDE: "/" >
+}
+
+TOKEN : /* LITERALS */
+{
+  < INTEGER_LITERAL: ( ["1"-"9"] (["0"-"9"])*
+| "0" ) >
+}
+
+TOKEN : /* IDENTIFIERS */
+{
+  < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+| < #LETTER: [ "a"-"z", "A"-"Z" ] >
+| < #DIGIT: ["0"-"9" ] >
+}
+
+
+/****************************************
+ * The StraightLine Grammar Starts Here *
+ ****************************************/
+
+/* REVISED GRAMMAR:
+
+	Goal ->	StmList
+	StmList -> Stm ( ; Stm ) *
+	Stm ->	id := Exp
+		|	print "(" ExpList ")"
+	Exp	->	MulExp ( (+|-) MulExp ) *
+	MulExp -> PrimExp ( (*|/) PrimExp ) *
+	PrimExp -> id
+		|	num
+		|	"(" StmList , Exp ")"
+	ExpList -> Exp ( , Exp ) *
+	
+	"print((a := 1; a := a*a, a),a+1)"
+*/
+
+/* NB: We give names to all the key non-terminals to simplify our visitors */
+
+void Goal() : {}{ StmList() <EOF> }
+void StmList() : {}{ Stm() ( ";" Stm() ) * }
+
+void Stm() : {}{ Assignment() | PrintStm() }
+
+/* distinguish reading and writing Id */
+void Assignment() : {}{ WriteId() ":=" Exp() }
+void WriteId() : {}{ <IDENTIFIER> }
+
+void PrintStm() : {}{ "print" "(" ExpList() ")" }
+
+void ExpList() : {}{ Exp() ( AppendExp() ) * }
+void AppendExp() : {} { "," Exp() }
+
+void Exp() : {}{ MulExp() ( PlusOp() | MinOp() ) * }
+void PlusOp() : {} { "+" MulExp() }
+void MinOp() : {} { "-" MulExp() }
+
+void MulExp() : {}{ PrimExp() ( MulOp() | DivOp() ) * }
+void MulOp() : {} { "*" PrimExp() } 
+void DivOp() : {} { "/" PrimExp() } 
+
+void PrimExp() : {}{ ReadId() | Num() | StmExp() }
+void ReadId() : {}{ <IDENTIFIER> }
+void Num() : {}{ <INTEGER_LITERAL> }
+void StmExp() : {}{ "(" StmList() "," Exp() ")" }

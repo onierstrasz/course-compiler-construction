@@ -1,0 +1,45 @@
+testsuite SLParse
+topsort Goal
+
+test eg1 parse
+	"print(1+2*3, 4)"
+->
+	[ Print(
+	    "print"
+	  , [ Mul(Add(Num("1"), Num("2")), Num("3"))
+	    , Num("4") ])]
+
+test eg2 parse
+	"a := 1; print(a)"
+->
+	[Assign("a",Num("1")),Print("print",[Id("a")])]
+
+test eg3 parse
+	"print((a := 1; a := a+a*a+a, a),a+1)"
+->
+	[ Print(
+	    "print"
+	  , [ StmExp(
+	        [ Assign("a", Num("1"))
+	        , Assign(
+	            "a"
+	          , Mul(
+	              Add(Id("a"), Id("a"))
+	            , Add(Id("a"), Id("a")) ))]
+	      , Id("a") )
+	    , Add(Id("a"), Num("1")) ])]
+
+
+test eg4 parse
+	"a := 5 + 3; b := (print(a,a-1),10*a); print(b)"
+->
+	[ Assign("a", Add(Num("5"), Num("3")))
+	, Assign(
+	    "b"
+	  , StmExp(
+	      [ Print(
+	          "print"
+	        , [Id("a"), Sub(Id("a"), Num("1"))] )]
+	    , Mul(Num("10"), Id("a")) ))
+	, Print("print", [Id("b")]) ]
+

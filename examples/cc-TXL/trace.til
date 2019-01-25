@@ -1,0 +1,24 @@
+write "Trace: var n;";
+var n;
+write "Trace: write \"Input n please\";";
+write "Input n please";
+write "Trace: read n;";
+read n;
+write "Trace: write \"The factors of n are\";";
+write "The factors of n are";
+write "Trace: var f;";
+var f;
+write "Trace: f := 2;";
+f := 2;
+write "Trace: while n != 1 do ... end";
+while n != 1 do
+    write "Trace: while (n / f) * f = n do ... end";
+    while (n / f) * f = n do
+        write "Trace: write f;";
+        write f;
+        write "Trace: n := n / f;";
+        n := n / f;
+    end
+    write "Trace: f := f + 1;";
+    f := f + 1;
+end

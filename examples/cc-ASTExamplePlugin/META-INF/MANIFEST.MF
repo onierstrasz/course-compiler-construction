@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ASTExamplePlugin Plug-in
+Bundle-SymbolicName: cc-ASTExamplePlugin;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: astexampleplugin.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core,
+ org.eclipse.core.resources,
+ org.eclipse.text
+Eclipse-LazyStart: true
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
