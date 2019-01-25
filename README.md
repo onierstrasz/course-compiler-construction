@@ -1,5 +1,7 @@
 # Compiler Construction
 
+![St George](figures/stgeorge.png)
+
 This repo contains the lecture material for the MSc level course “Compiler Construction”.
 
 The course provides students with an introduction to modern compiler construction. The first two-thirds of the course covers fundamental topics, and is based on the text book Modern Compiler Implementation in Java (Second edition), Cambridge University Press, New York, NY, USA, 2002, by Andrew W. Appel, with Jens Palsberg). The remaining third of the course covers advanced topics of current interest.
@@ -27,9 +29,9 @@ The figures for the slides have mostly been prepared using [OmniGraffle](https:/
 ## Repo
 
 This repo lives on [github](https://github.com/onierstrasz/course-compiler-construction).
-
 Further resources can be found on the [course web site](http://scg.unibe.ch/teaching/cc).
 
+![CCSA4](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
 ---
