@@ -25,7 +25,11 @@ You must add the bcel jar to the class path to run the compiler.
 Examples are in examples.Examples
 The interpreter class is interpreter.StraightLineInterpreter.
 Simply run it as an application and enter a code example.
-(NB: enter <CNTL>-D to signle the end of input.)
+I.e., from the bin directory run:
+
+	java interpreter.StraightLineInterpreter
+
+Enter <CNTL>-D to signal the end of input.)
 
 StraightLineInterpreterTest will exercise all the examples.
 
