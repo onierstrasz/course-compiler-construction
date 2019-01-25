@@ -1,0 +1,63 @@
+From: Tony Hosking <hosking@cs.purdue.edu>
+Date: April 14, 2008 16:23:55 GMT+02:00
+To: Oscar Nierstrasz <oscar@iam.unibe.ch>
+Cc: Jens Palsberg <palsberg@CS.UCLA.EDU>
+Subject: Re: Compiler Construction course -- can I adapt material and make it available under Creative Commons?
+
+Dear Oscar,
+
+My apologies -- I have been traveling.
+
+You are most welcome to make use of my notes.  I have two versions, one set for graduate students and another for undergrads.  Both are available at http://www.cs.purdue.edu/~hosking/352/notes and http://www.cs.purdue.edu/~hosking/502/notes, respectively.  The grad notes also draw on material other than Appel.
+
+I can make both available to you in source LaTeX form as well, if that is useful to you.  Also, I am happy to relax my assertion of copyright as best fits Creative Commons -- I should really switch to that license myself.
+
+Please let me know if you need anything else, and I promise I will respond in a more timely fashion.
+
+Best regards,
+
+Tony
+
+
+Antony Hosking | Associate Professor | Computer Science | Purdue University
+305 N. University Street | West Lafayette | IN 47907 | USA
+Office +1 765 494 6001 | Mobile +1 765 427 5484
+
+
+On Apr 14, 2008, at 9:29 AM, Oscar Nierstrasz wrote:
+
+Hi Tony,
+
+Not sure if you got my previous request -- as far as I know I did not get a response, so I am asking again.
+
+I would like to base a course on Jens' compiler book, and am interested in adapting your lecture material.
+
+Your lecture notes state:
+
+"Copyright (c) 2006 by Antony L. Hosking. Permission to make digital or hard copies of part or all of this work for
+personal or classroom use is granted without fee provided that copies are not made or distributed for profit or
+commercial advantage and that copies bear this notice and full citation on the first page. To copy otherwise, to
+republish, to post on servers, or to redistribute to lists, requires prior specific permission and/or fee. Request
+permission to publish from hosking@cs.purdue.edu."
+
+However I make my own lecture notes available under Creative Commons Share Alike 3.0, and post them on our svn server.
+
+https://www.iam.unibe.ch/scg/svn_repos/Lectures/
+
+Do I have your permission to use adapt parts of your lecture notes, provided I give credit to the relevant pages?
+
+I am just worried that your copyright notice may not be compatible with Creative Commons, so I need your permission to proceed.
+
+http://creativecommons.org/licenses/by-sa/3.0/
+
+Please let me know in either case, as I would like to start preparing my lecture notes ASAP.
+
+Cheers,
+Oscar
+---
+Prof. Dr. O. Nierstrasz    -- Oscar.Nierstrasz@iam.unibe.ch
+Software Composition Group -- http://www.iam.unibe.ch/~scg
+University of Berne        -- Tel/Fax +41 31 631.4618/3355
+vcard:  http://www.iam.unibe.ch/~oscar/oscarNierstrasz.vcf
+
+
