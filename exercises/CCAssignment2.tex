@@ -1,0 +1,53 @@
+\include{preamble}
+\subtitle{Assignment 2: Lexical Analysis}
+\begin{document}
+
+\makefancytitle
+
+
+\section{NFA and DFA}
+
+Consider the following regular expression.
+\[
+  a^* \left( bc \mid de \right) b^*c
+\]
+
+Do the following tasks:
+\begin{enumerate}
+\item Draw a non-deterministic finite automaton (NFA) for the expression, and
+\item transform it to a deterministic finite automaton (DFA).
+\end{enumerate}
+
+
+\section{Expressiveness}
+
+Explain why there are no regular expressions which can express the language $a^n b^n$, where $n$ is any positive number.
+
+
+\section{Writing Regular Expressions (1)}
+
+Write a regular expression that matches \emph{banana, bananas, ananas, ananana, anna}, but not \emph{baanana, anannass, anaa, ans}.
+
+Make the expression as short as possible. \cc{b?((an+)+a)s?}
+
+
+\section{Writing Regular Expressions (2)}
+
+Write a regular expression for non-negative integers with a time unit suffix.
+The possible suffixes are \enquote{ms} (milliseconds), \enquote{s} (seconds), \enquote{m} (minutes), \enquote{h} (hours), and \enquote{d} (days).
+Ensure that only integers that make sense are matched.
+For example, \enquote{25h} should not be possible, nor should \enquote{1200ms} be a match (instead, they should be written as \enquote{1d 1h} and \enquote{1s 200ms} respectively).
+Multiple units can be combined using spaces (but do not have to be in a specific order).
+
+Write a single expression. Examples are as follows:
+
+\begin{description}
+\item[Matches] 256ms, 5s, 32m, 16h, 4d, \enquote{1d 1h}, \enquote{2h 1d 3s}.
+\item[No matches] 05ms, 10e, -2h, 100s, 25h.
+\end{description}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

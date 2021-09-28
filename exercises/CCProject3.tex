@@ -1,0 +1,49 @@
+\include{preamble}
+
+\subtitle{Semester project}
+
+\begin{document}
+
+\makefancytitle
+
+\setcounter{section}{2}
+\section{Java byte code generation and optimization}
+
+\begin{itemize} 
+\item Implement optimization techniques on your intermediate representation of Mini Java. The more, the better. 
+
+\item Implement a code generation unit that transforms your intermediate representation to Java bytecode.
+  For the generation of Java byte code use the bcel library (\url{http://commons.apache.org/proper/commons-bcel/}).
+
+  \cc{Hint: Use the \texttt{javap} tool with argument \texttt{-c} (\texttt{javap -c Foo}).}\cc{what?}
+
+\item The provided test suite specifies the code generation rules.
+  Use it to ensure that your implementation works as expected and to get a feel for the number of features you have implemented.
+  We will use these test cases to evaluate your code generation unit.
+  However, we may also use additional tests that check additional scenarios, so you may want to implement your own additional test cases.
+  You are not allowed to modify the existing test cases.
+
+\item Import the provided test suite into your eclipse project.
+
+\item You have time until \todo{NN April 2017, 10:00} to complete this part of the project.
+
+\item Push your solution (the Eclipse project, including the parts provided by us) into the your Bitbucket repository. Share the repository with the user \todo{\emph{scg-uko} update user}. 
+
+\item You are not allowed to use other people’s work.
+  All parts of the project solution must be your own work.
+
+\end{itemize}
+
+
+\subsection{Best Bytecode Generator Contest}
+Your optimization techniques will be evaluated from the bytecode size point of view.
+The best team (teams?) will be awarded with a small reward.
+
+\emph{NB: Make sure you properly use the method \texttt{addMethod(ClassGen cg, MethodGen mg)}, which counts the number of bytecodes.}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

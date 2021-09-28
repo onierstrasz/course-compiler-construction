@@ -1,0 +1,83 @@
+1 introduction
+what is a compiler doing, high level?
+difference compiler-interpreter
+features of a compiler
+problem with translators: debugging
+phases of compilation, three-pass compiler
+what's a scanner, goal input output, where is it used in compiler?
+what's a parser, goal input output?
+why is CFG called context free?
+AST vs CST, CST to AST
+
+2 lexical analysis
+what is the purpose of a scanner?
+token vs. lexeme
+scannerless parsers for embedded languages, e.g. HTML within JavaScript
+chomsky hierarchy
+	equivalence automata and grammars
+language that cannot be recognized by re
+re to nfa
+nfa to dfa
+minimize dfa
+dfa to re
+
+3 parsing
+what does a parser do?
+why is LR more powerful than LL?
+make example of an ambiguous grammar
+why is left recursion and ambiguity a problem?
+eliminate ambiguity
+eliminate left-recursion
+what can you use a ll0 grammar for?
+	no choices, reject some input, accept format
+force precedence in parse
+top-down vs. bottom-up
+parse table construction for ll1
+
+4 parsing in practice
+bottom-up shift-reduce parser
+ambiguity ll and lr
+	A>b or A>c
+	A>b or B>b
+
+5 intermediate representations
+why use irs?
+property of ssa
+how to ensure with phi
+given code, write cfg, rewrite ssa code
+what's ssa good for?
+remove phi, phi congruence
+
+6 program analysis
+A is context, types of values
+type check using natural deductions
+abstract interpretation, reaching defs for code
+what is this useful for?
+⊤
+|
+⊥
+
+7 optimization
+Which qualities can you optimize an executable for using a compiler?
+What's peephole optimization, example?
+Name and describe three optimizations.
+SSA of example code, optimize, name optimizations, explain.
+
+8 Code Generation
+What constraints to respect when calling procedures on a processors?
+Optimize for constraints (liveness)
+Provide instruction set, optimize tiling
+
+9 
+What are the pros and cons of targeting a VM instead of processor?
+Describe a basic approach to implement garbage collection.
+
+10
+Put in "generate", "recognize": CFGs ___ languages strings, PEGs ___ languages strings
+Example that makes use of prioritized choice.
+backtracking, unlimited lookahead vs. lookahead and non-ambiguity
+describe how packrat parsers improve parsing speed at what trade-off
+
+11
+program transformations from source code to source code
+What's the goal of AOP?

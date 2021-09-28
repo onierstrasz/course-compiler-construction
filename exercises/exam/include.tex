@@ -1,0 +1,77 @@
+%layout
+\topmargin      -5.0mm
+\oddsidemargin  6.0mm
+\evensidemargin -6.0mm
+\textheight     215.5mm
+\textwidth      160.0mm
+\parindent      1.0em
+\headsep        10.3mm
+\headheight     12pt
+\lineskip       1pt
+\normallineskip 1pt
+
+%header
+\lhead{Compiler Construction \\ 2017}
+
+\rhead{\small Prof. O. Nierstrasz, Mohammad Ghafari\\
+        Yuriy Tymchuk, Manuel Leuenberger}
+
+\lfoot{page \thepage}
+\rfoot{\today}
+\cfoot{}
+
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+
+\def\xexercise{\fontsize{12}{10}\fontseries{bx}\selectfont}
+\def\xnormal{\fontseries{m}\fontshape{n}\selectfont}
+
+\newcounter{exnum}
+\newcommand{\exercise}[1]{%
+	{\addtocounter{exnum}{1}\vskip 0.8cm{\xexercise \noindent Exercise \arabic{exnum} (#1)} \xnormal} \vskip 0.3cm}
+\newcommand{\aufgabe}[1]{
+	{\addtocounter{exnum}{1}\vskip 0.8cm{\xexercise \noindent Aufgabe \arabic{exnum} (#1)} \xnormal} \vskip 0.3cm}
+
+%enumeration
+\newenvironment{myitemize}{%
+     \begin{itemize}
+     \setlength{\itemsep}{0cm}}
+     {\end{itemize}}
+
+\newenvironment{myenumerate}{%
+	\renewcommand{\labelenumi}{\alph{enumi})}
+	\renewcommand{\labelenumii}{\arabic{enumii})}
+     \begin{enumerate} \setlength{\itemsep}{0cm}}
+     {\end{enumerate}}
+
+
+%solution
+\ifthenelse{\boolean{showsolution}}
+  {  \newcommand{\solution}[1]{
+         \noindent\underline{\textbf{Answer:}}\\[2mm]
+         \textsl{#1}
+         \vspace{10pt}
+         \normalsize
+	   }
+  }
+  {  
+    \newcommand{\solution}[1]{} 
+  }
+
+\ifthenelse{\boolean{showsolution}}
+{
+  \newenvironment{solutionBlock}{
+         \noindent\underline{\textbf{Answer:}}
+  }{}
+}{
+  \let\solutionBlock\comment
+}
+
+
+\pagestyle{fancy}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+\newcommand\code[1]{\colorbox{light-gray}{\texttt{#1}}} % code
+\newcommand\ccun{$\cup$} % code
+\newcommand\ccin{$\cap$} % code

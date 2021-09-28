@@ -1,0 +1,15 @@
+1
+a Why is it important that a compiler supports separate compilation?
+b What is the difference between context-free and context-sensitive grammars?
+c Which kind of parsers have a problem with left-recursive grammars? What are the effects of the problem?
+d What is SSA and which optimizations rely on it?
+e Why does a mark and sweep garbage collection distinguish between old and new objects?
+
+2
+10(01|1)*01
+
+3
+higher-order functions
+arithmetics
+messages
+vectors

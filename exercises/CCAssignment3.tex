@@ -1,0 +1,62 @@
+\include{preamble}
+\subtitle{Assignment 3: Parsing}
+\begin{document}
+
+\makefancytitle
+
+\section{Left recursion}
+
+\cc{Same as in 2017.}
+
+Consider the following grammar.
+\begin{lstlisting}
+<sentence> ::= <words>
+<words> ::= <words><word> | <word>
+\end{lstlisting}
+
+Do the following tasks.
+\begin{enumerate}
+\item Remove the left recursion.
+\item Why are left recursions bad? For what type of parsers? Keep the answer short and precise.
+\end{enumerate}
+
+
+\section{Extending the grammar}
+
+\cc{Same as in 2017.}
+
+Extend the grammar from Exercise 1 so it can support questions (sentences terminated with a question mark), exclamations (sentences terminated with a exclamation mark), complex sentences (parts are divided by a comma), and the notion that the first word of a sentence must begin with a capital letter. Also, any other word in the sentence can begin with a capital letter. Assume that \texttt{<capitalWord>} is a word with a capital first letter.
+
+Extra task (not graded): Write regular expressions for \texttt{<capitalWord>} and \texttt{<word>}.
+
+
+\section{Parsing mathematical expressions in reverse Polish notation}
+
+Write a grammar for parsing mathematical expressions in Reverse Polish Notation\footnote{\url{https://en.wikipedia.org/wiki/Reverse_Polish_notation}} (RPN).
+Your grammar should be able to parse expresions that include digits the binary operators * (multiplication), - (subtraction), + (addition), / (division), as well as the unary operators N (negation) and ! (factorial).
+
+Valid expressions:
+\begin{itemize}
+\item 3 4 +
+\item 10 2 + ! 3 4 + * 5 6 * /
+\item 2 ! 3 ! +
+\item 12 N
+\item 12 13 -
+\item 1 2 N - ! N
+\end{itemize}
+
+Invalid expressions:
+\begin{itemize}
+\item 3 + 4
+\item + 1 2
+\item 1 +
+\item 5 -
+\end{itemize}
+
+Extra task (not graded): Ensure that your grammar does not contain any left recursion.
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

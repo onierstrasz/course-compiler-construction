@@ -1,0 +1,108 @@
+\documentclass[a4wide]{scrartcl}
+
+
+% Page setup
+%%%%%%%%%%%%
+\usepackage{geometry}
+\geometry{
+  bottom=2.5cm,
+  top=2.5cm,
+  left=2.5cm,
+  right=2.5cm,
+  includeheadfoot
+}
+
+%% Fonts (requires lualatex or xelatex!)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{fontspec}
+%\setmonofont{DejaVu Sans Mono}
+
+% Header and footer
+%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\lhead{\small Compiler Construction \\ Spring Semester 2019}
+\rhead{\small Prof. Dr. O. Nierstrasz, Dr. Mohammad Ghafari\\
+        Manuel Leuenberger, Claudio Corrodi}
+\cfoot{\thepage}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+\pagestyle{fancy}
+
+
+%% Comments, notes, etc.
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ifthen}
+\newboolean{showcomments}
+\setboolean{showcomments}{true}
+%\setboolean{showcomments}{false}
+
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+\ifthenelse{\boolean{showcomments}}{
+  % then 
+  \newcommand{\bnote}[2]{
+    \fbox{\bfseries\sffamily\scriptsize#1}
+    {\sffamily\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}
+  }
+}{
+  % else
+  \newcommand{\bnote}[2]{}{}
+}
+  
+\newcommand{\triangles}[1]{{\sffamily\small$\blacktriangleright$\textit{#1}$\blacktriangleleft$}}
+\newcommand{\nbc}[3]{
+  \ifthenelse{\boolean{showcomments}}{
+    % then    
+    {\colorbox{#3}{\bfseries\sffamily\scriptsize\textcolor{white}{#1}}}%
+    {\textcolor{#3}{\sffamily\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}}
+  }{
+    % else
+  }
+}
+
+% Notes
+\newcommand\cc[1]{\nbc{CC}{#1}{green!50!black}}
+\newcommand\ml[1]{\nbc{ML}{#1}{cyan!80!black}}
+\newcommand\todo[1]{\nbc{TODO}{#1}{red}}
+\newcommand\verify[1]{\nbc{TO VERIFY}{#1}{red!50!black}}
+
+% Code listings
+%%%%%%%%%%%%%%%
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily
+}
+
+
+% Sane quotes
+%%%%%%%%%%%%%
+\usepackage{csquotes}
+
+
+% Shorter titles
+%%%%%%%%%%%%%%%%
+\makeatletter
+\def\@maketitle{%
+  \noindent
+  {\centering
+  {\LARGE \sffamily \textbf{\@title}}\\[0.75em]
+  {\Large \sffamily \textit{\@subtitle}}\par
+  }
+}
+\makeatother
+
+% Keep the header when inserting the title
+\newcommand\makefancytitle{%
+  \maketitle\vspace{0em plus 2em minus 2em}%
+  \thispagestyle{fancy}%
+}
+
+% Include graphics in various formats
+\usepackage{graphicx}
+
+
+% Default title; use subtitle for assignment specific titles
+\title{Compiler Construction 2019}
